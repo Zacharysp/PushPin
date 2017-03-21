@@ -18,8 +18,9 @@
 		B6FDD29E1E7EC35A0008DF45 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */; };
 		E006E80F1E7FE5DF00F8DAA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6644B1E1E7CFD0500B051C5 /* ViewController.swift */; };
 		E006E8101E7FE62300F8DAA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */; };
-		E006E8131E7FE81100F8DAA2 /* wife.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E006E8121E7FE81100F8DAA2 /* wife.jpg */; };
-		E006E8141E7FE85700F8DAA2 /* wife.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E006E8121E7FE81100F8DAA2 /* wife.jpg */; };
+		E0CBCDF41E80D4010031CC60 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CBCDF31E80D4010031CC60 /* EditVC.swift */; };
+		E0CBCDF81E811D570031CC60 /* GenerateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CBCDF71E811D570031CC60 /* GenerateVC.swift */; };
+		E0CBCDFA1E8146D80031CC60 /* PPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CBCDF91E8146D80031CC60 /* PPImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,9 @@
 		B6644B3F1E7CFD0500B051C5 /* PushPinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPinUITests.swift; sourceTree = "<group>"; };
 		B6644B411E7CFD0500B051C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E006E8121E7FE81100F8DAA2 /* wife.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wife.jpg; sourceTree = "<group>"; };
+		E0CBCDF31E80D4010031CC60 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
+		E0CBCDF71E811D570031CC60 /* GenerateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateVC.swift; sourceTree = "<group>"; };
+		E0CBCDF91E8146D80031CC60 /* PPImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +109,7 @@
 		B6644B1B1E7CFD0500B051C5 /* PushPin */ = {
 			isa = PBXGroup;
 			children = (
-				E006E8121E7FE81100F8DAA2 /* wife.jpg */,
+				E0CBCDF91E8146D80031CC60 /* PPImage.swift */,
 				B6644B1C1E7CFD0500B051C5 /* AppDelegate.swift */,
 				B6644B1E1E7CFD0500B051C5 /* ViewController.swift */,
 				B6644B201E7CFD0500B051C5 /* Main.storyboard */,
@@ -115,6 +118,8 @@
 				B6644B2B1E7CFD0500B051C5 /* Info.plist */,
 				B6644B231E7CFD0500B051C5 /* PushPin.xcdatamodeld */,
 				B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */,
+				E0CBCDF31E80D4010031CC60 /* EditVC.swift */,
+				E0CBCDF71E811D570031CC60 /* GenerateVC.swift */,
 			);
 			path = PushPin;
 			sourceTree = "<group>";
@@ -205,7 +210,7 @@
 				TargetAttributes = {
 					B6644B181E7CFD0400B051C5 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = J7KASTD2Y4;
+						DevelopmentTeam = 89W4YZ76XU;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -253,7 +258,6 @@
 				B6644B2A1E7CFD0500B051C5 /* LaunchScreen.storyboard in Resources */,
 				B6644B271E7CFD0500B051C5 /* Assets.xcassets in Resources */,
 				B6644B221E7CFD0500B051C5 /* Main.storyboard in Resources */,
-				E006E8131E7FE81100F8DAA2 /* wife.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +272,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E006E8141E7FE85700F8DAA2 /* wife.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +284,10 @@
 			files = (
 				B6644B251E7CFD0500B051C5 /* PushPin.xcdatamodeld in Sources */,
 				B6644B1F1E7CFD0500B051C5 /* ViewController.swift in Sources */,
+				E0CBCDFA1E8146D80031CC60 /* PPImage.swift in Sources */,
 				B6644B1D1E7CFD0500B051C5 /* AppDelegate.swift in Sources */,
+				E0CBCDF81E811D570031CC60 /* GenerateVC.swift in Sources */,
+				E0CBCDF41E80D4010031CC60 /* EditVC.swift in Sources */,
 				B6FDD29E1E7EC35A0008DF45 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,11 +440,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J7KASTD2Y4;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 89W4YZ76XU;
 				INFOPLIST_FILE = PushPin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zachary.PushPin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PushPin/PushPin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -447,11 +456,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J7KASTD2Y4;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 89W4YZ76XU;
 				INFOPLIST_FILE = PushPin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zachary.PushPin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PushPin/PushPin-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
