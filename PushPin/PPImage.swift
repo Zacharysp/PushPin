@@ -10,32 +10,8 @@ import Foundation
 import UIKit
 
 struct PPImage {
-    public static func makeImage(oldImage: UIImage, sectionSize: Int, colors: Array<PPColor>) -> CGImage?{
-        let bitsArr = oldImage.pixelData()!
-        
-        let outBounds = CGRect(x: 0, y: 0, width: oldImage.size.width, height: oldImage.size.height)
-        
-        if let canvas = CGContext(data: nil,
-                                  width: Int(oldImage.size.width),
-                                  height: Int(oldImage.size.height),
-                                  bitsPerComponent: 8,
-                                  bytesPerRow: 0,
-                                  space: CGColorSpaceCreateDeviceRGB(),
-                                  bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue) {
-            
-            canvas.translateBy(x: 0, y: outBounds.height) // to flip the image vertically
-            canvas.scaleBy(x: 1, y: -1) // to flip the image vertically
-            
-            //render
-            renderImage(bitArr: bitsArr, sectionSize: sectionSize, rowLength: oldImage.size.width, canvas: canvas, outBounds: outBounds, colors: colors)
-            
-            return canvas.makeImage()
-        } else {
-            return nil
-        }
-    }
     
-    public static func make(image: UIImage, width: Int, size: Int) -> CGImage?{
+    public static func make(image: UIImage, width: Int, size: Int, colors: Array<PPColor>) -> CGImage?{
         let bitsArr = image.pixelData()!
         
         let outBounds = findRatioRect(size: image.size, width: width)
@@ -52,7 +28,7 @@ struct PPImage {
             canvas.scaleBy(x: 1, y: -1) // to flip the image vertically
             
             //render
-            render(bitArr: bitsArr, rowLength: image.size.width, canvas: canvas, outBounds: outBounds, size: size)
+            render(bitArr: bitsArr, rowLength: image.size.width, canvas: canvas, outBounds: outBounds, size: size, colors: colors)
             
             return canvas.makeImage()
         } else {
@@ -75,6 +51,7 @@ struct PPImage {
         return newImage!
     }
     
+    //get new image frame
     fileprivate static func findRatioRect(size: CGSize, width: Int) -> CGRect{
         let ratio = size.height / size.width
         
@@ -92,7 +69,6 @@ struct PPImage {
     }
     
     fileprivate static func findNearestColor(red: UInt8, green: UInt8, blue: UInt8, pushpinColors: Array<PPColor>) -> PPColor{
-        var distances : Array<CGFloat> = []
         var min : CGFloat = 1
         var nearestColor = PPColor(color: UIColor.white)
         for color in pushpinColors {
@@ -101,90 +77,17 @@ struct PPImage {
                 min = dis
                 nearestColor = color
             }
-            distances.append(dis)
         }
-        
         return nearestColor
     }
     
-    fileprivate static func findSectionNearestColor(bitArr: Array<UInt8>, colors: Array<PPColor>) -> UIColor{
-        let colorCount = bitArr.count / 4
-        
-        var dominateColorCount = Array(repeating: 0, count: colors.count)
-        
-        for index in 0 ... colorCount - 1 {
-            
-            let currentIndex = index*4
-            
-            let nearestColor = findNearestColor(red: bitArr[currentIndex],
-                                                green: bitArr[currentIndex+1],
-                                                blue: bitArr[currentIndex+2],
-                                                pushpinColors: colors)
-            
-            if let index = colors.index(where: {$0 === nearestColor}) {
-                dominateColorCount[index] += 1
-            }
-        }
-        
-        var dominateColorMax = 0
-        var dominateColorIndex = 0
-        
-        for (index, count) in dominateColorCount.enumerated() {
-            if count > dominateColorMax {
-                dominateColorIndex = index
-                dominateColorMax = count
-            }
-        }
-        return colors[dominateColorIndex].toUIColor()
-        
-    }
-    
-    fileprivate static func renderImage(bitArr: Array<UInt8>, sectionSize: Int, rowLength: CGFloat, canvas: CGContext, outBounds: CGRect, colors: Array<PPColor>){
-        let rowIndexs = Int(rowLength * 4) //tatol number of bits in one row
-        let rowNumber = Int(bitArr.count / rowIndexs) / sectionSize //number of section rows
-        let colNumber = Int(rowIndexs / (sectionSize * 4)) //number of section columns
-        
-        let sectionCount = colNumber * rowNumber //total number of sections
-        
-        canvas.saveGState()
-        canvas.clip(to: outBounds)
-        canvas.translateBy(x: outBounds.minX, y: outBounds.minY)
-        
-        for sectionIndex in 0 ... sectionCount - 1 {
-            var sectionBitArr = [UInt8]()
-            let sectionStartY = Int(sectionIndex / colNumber) * sectionSize //get start y axis of this section
-            let sectionStartX = sectionIndex % colNumber * sectionSize * 4 // get start x axis of this section
-            for y in sectionStartY ..< sectionStartY + sectionSize { //iterate from start y to start y + section size
-                let startIndex = y*colNumber*sectionSize*4 + sectionStartX //start index in whole bits array
-                let endIndex = startIndex + (sectionSize*4) //end index in whole bits array
-                sectionBitArr.append(contentsOf: bitArr[startIndex ..< endIndex])
-            }
-            
-            let halfSize = CGFloat(sectionSize / 2)
-            let color = findSectionNearestColor(bitArr: sectionBitArr, colors: colors)
-            canvas.setFillColor(color.cgColor)
-            canvas.addArc(center: CGPoint(x: sectionStartX/4 + sectionSize/2, y: sectionStartY + sectionSize/2),
-                          radius: halfSize,
-                          startAngle: 0,
-                          endAngle: 2 * CGFloat.pi,
-                          clockwise: false)
-            canvas.fillPath()
-        }
-    }
-    
-    fileprivate static func render(bitArr: Array<UInt8>, rowLength: CGFloat, canvas: CGContext, outBounds: CGRect, size: Int) {
+    fileprivate static func render(bitArr: Array<UInt8>, rowLength: CGFloat, canvas: CGContext, outBounds: CGRect, size: Int, colors: Array<PPColor>) {
         let bitCount = bitArr.count / 4
-        
-        print(bitArr.count)
-        print(bitCount)
         
         for index in 0 ..< bitCount {
             let currentIndex = index*4
-            let color = UIColor(red: CGFloat(bitArr[currentIndex])/255.0,
-                                green: CGFloat(bitArr[currentIndex+1])/255.0,
-                                blue: CGFloat(bitArr[currentIndex+2])/255.0,
-                                alpha: 1)
-            canvas.setFillColor(color.cgColor)
+            let nearestColor = findNearestColor(red: bitArr[currentIndex], green: bitArr[currentIndex+1], blue: bitArr[currentIndex+2], pushpinColors: colors)
+            canvas.setFillColor(nearestColor.toUIColor().cgColor)
             let pointStartY = Int(CGFloat(index) / rowLength) * size//get start y axis of this section
             let pointStartX = index % Int(rowLength) * size // get start x axis of this section
             canvas.addArc(center: CGPoint(x: pointStartX + size/2, y: pointStartY + size/2),

@@ -18,7 +18,15 @@ class GenerateVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let newImage = PPImage.make(image: editImage, width: 400, size: 8) {
+        let colors = editImage.dominantColors()
+        
+        var colorArr: Array<PPColor> = []
+        
+        for color in colors {
+           colorArr.append(PPColor(color:color))
+        }
+        
+        if let newImage = PPImage.make(image: editImage, width: 400, size: 8, colors: colorArr) {
             generateImageView.contentMode = UIViewContentMode.scaleAspectFit
             generateImageView.image = UIImage(cgImage: newImage)
         }else {
