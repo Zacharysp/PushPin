@@ -17,15 +17,8 @@
 		B6FDD29E1E7EC35A0008DF45 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */; };
 		E006E8101E7FE62300F8DAA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */; };
 		E04A4A451E826A3800E8A349 /* StartNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A441E826A3800E8A349 /* StartNewVC.swift */; };
-		E04A4A551E8284CB00E8A349 /* ColorDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A491E8284CB00E8A349 /* ColorDifference.swift */; };
-		E04A4A561E8284CB00E8A349 /* ColorSpaceConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A4B1E8284CB00E8A349 /* ColorSpaceConversion.m */; };
-		E04A4A571E8284CB00E8A349 /* DominantColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A4D1E8284CB00E8A349 /* DominantColors.swift */; };
-		E04A4A581E8284CB00E8A349 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E04A4A4E1E8284CB00E8A349 /* Info.plist */; };
-		E04A4A591E8284CB00E8A349 /* INVector3.m in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A501E8284CB00E8A349 /* INVector3.m */; };
-		E04A4A5A1E8284CB00E8A349 /* INVector3SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A511E8284CB00E8A349 /* INVector3SwiftExtensions.swift */; };
-		E04A4A5B1E8284CB00E8A349 /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A521E8284CB00E8A349 /* KMeans.swift */; };
-		E04A4A5C1E8284CB00E8A349 /* Memoization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A531E8284CB00E8A349 /* Memoization.swift */; };
-		E04A4A5D1E8284CB00E8A349 /* PlatformExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A541E8284CB00E8A349 /* PlatformExtensions.swift */; };
+		E04A4A651E83D97000E8A349 /* ColorThief.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A631E83D97000E8A349 /* ColorThief.swift */; };
+		E04A4A661E83D97000E8A349 /* MMCQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A4A641E83D97000E8A349 /* MMCQ.swift */; };
 		E0CBCDF81E811D570031CC60 /* GenerateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CBCDF71E811D570031CC60 /* GenerateVC.swift */; };
 		E0CBCDFA1E8146D80031CC60 /* PPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CBCDF91E8146D80031CC60 /* PPImage.swift */; };
 /* End PBXBuildFile section */
@@ -64,18 +57,8 @@
 		B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E04A4A441E826A3800E8A349 /* StartNewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartNewVC.swift; sourceTree = "<group>"; };
 		E04A4A481E8284CB00E8A349 /* PushPin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PushPin-Bridging-Header.h"; sourceTree = "<group>"; };
-		E04A4A491E8284CB00E8A349 /* ColorDifference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorDifference.swift; path = lib/DominantColor/ColorDifference.swift; sourceTree = "<group>"; };
-		E04A4A4A1E8284CB00E8A349 /* ColorSpaceConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSpaceConversion.h; path = lib/DominantColor/ColorSpaceConversion.h; sourceTree = "<group>"; };
-		E04A4A4B1E8284CB00E8A349 /* ColorSpaceConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSpaceConversion.m; path = lib/DominantColor/ColorSpaceConversion.m; sourceTree = "<group>"; };
-		E04A4A4C1E8284CB00E8A349 /* DominantColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DominantColor.h; path = lib/DominantColor/DominantColor.h; sourceTree = "<group>"; };
-		E04A4A4D1E8284CB00E8A349 /* DominantColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DominantColors.swift; path = lib/DominantColor/DominantColors.swift; sourceTree = "<group>"; };
-		E04A4A4E1E8284CB00E8A349 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = lib/DominantColor/Info.plist; sourceTree = "<group>"; };
-		E04A4A4F1E8284CB00E8A349 /* INVector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INVector3.h; path = lib/DominantColor/INVector3.h; sourceTree = "<group>"; };
-		E04A4A501E8284CB00E8A349 /* INVector3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INVector3.m; path = lib/DominantColor/INVector3.m; sourceTree = "<group>"; };
-		E04A4A511E8284CB00E8A349 /* INVector3SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INVector3SwiftExtensions.swift; path = lib/DominantColor/INVector3SwiftExtensions.swift; sourceTree = "<group>"; };
-		E04A4A521E8284CB00E8A349 /* KMeans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KMeans.swift; path = lib/DominantColor/KMeans.swift; sourceTree = "<group>"; };
-		E04A4A531E8284CB00E8A349 /* Memoization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Memoization.swift; path = lib/DominantColor/Memoization.swift; sourceTree = "<group>"; };
-		E04A4A541E8284CB00E8A349 /* PlatformExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlatformExtensions.swift; path = lib/DominantColor/PlatformExtensions.swift; sourceTree = "<group>"; };
+		E04A4A631E83D97000E8A349 /* ColorThief.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorThief.swift; path = lib/ColorThiefSwift/ColorThief.swift; sourceTree = "<group>"; };
+		E04A4A641E83D97000E8A349 /* MMCQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MMCQ.swift; path = lib/ColorThiefSwift/MMCQ.swift; sourceTree = "<group>"; };
 		E0CBCDF71E811D570031CC60 /* GenerateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateVC.swift; sourceTree = "<group>"; };
 		E0CBCDF91E8146D80031CC60 /* PPImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,28 +148,18 @@
 		E04A4A461E8284AE00E8A349 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				E04A4A471E8284B600E8A349 /* DominantColor */,
+				E04A4A621E83D96200E8A349 /* ColorThief */,
 			);
 			name = lib;
 			sourceTree = "<group>";
 		};
-		E04A4A471E8284B600E8A349 /* DominantColor */ = {
+		E04A4A621E83D96200E8A349 /* ColorThief */ = {
 			isa = PBXGroup;
 			children = (
-				E04A4A491E8284CB00E8A349 /* ColorDifference.swift */,
-				E04A4A4A1E8284CB00E8A349 /* ColorSpaceConversion.h */,
-				E04A4A4B1E8284CB00E8A349 /* ColorSpaceConversion.m */,
-				E04A4A4C1E8284CB00E8A349 /* DominantColor.h */,
-				E04A4A4D1E8284CB00E8A349 /* DominantColors.swift */,
-				E04A4A4E1E8284CB00E8A349 /* Info.plist */,
-				E04A4A4F1E8284CB00E8A349 /* INVector3.h */,
-				E04A4A501E8284CB00E8A349 /* INVector3.m */,
-				E04A4A511E8284CB00E8A349 /* INVector3SwiftExtensions.swift */,
-				E04A4A521E8284CB00E8A349 /* KMeans.swift */,
-				E04A4A531E8284CB00E8A349 /* Memoization.swift */,
-				E04A4A541E8284CB00E8A349 /* PlatformExtensions.swift */,
+				E04A4A631E83D97000E8A349 /* ColorThief.swift */,
+				E04A4A641E83D97000E8A349 /* MMCQ.swift */,
 			);
-			name = DominantColor;
+			name = ColorThief;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E04A4A581E8284CB00E8A349 /* Info.plist in Resources */,
 				B6644B2A1E7CFD0500B051C5 /* LaunchScreen.storyboard in Resources */,
 				B6644B271E7CFD0500B051C5 /* Assets.xcassets in Resources */,
 				B6644B221E7CFD0500B051C5 /* Main.storyboard in Resources */,
@@ -330,20 +302,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E04A4A5D1E8284CB00E8A349 /* PlatformExtensions.swift in Sources */,
 				B6644B251E7CFD0500B051C5 /* PushPin.xcdatamodeld in Sources */,
-				E04A4A591E8284CB00E8A349 /* INVector3.m in Sources */,
-				E04A4A5B1E8284CB00E8A349 /* KMeans.swift in Sources */,
+				E04A4A661E83D97000E8A349 /* MMCQ.swift in Sources */,
+				E04A4A651E83D97000E8A349 /* ColorThief.swift in Sources */,
 				E0CBCDFA1E8146D80031CC60 /* PPImage.swift in Sources */,
-				E04A4A5C1E8284CB00E8A349 /* Memoization.swift in Sources */,
-				E04A4A561E8284CB00E8A349 /* ColorSpaceConversion.m in Sources */,
-				E04A4A5A1E8284CB00E8A349 /* INVector3SwiftExtensions.swift in Sources */,
 				B6644B1D1E7CFD0500B051C5 /* AppDelegate.swift in Sources */,
 				E04A4A451E826A3800E8A349 /* StartNewVC.swift in Sources */,
-				E04A4A551E8284CB00E8A349 /* ColorDifference.swift in Sources */,
 				E0CBCDF81E811D570031CC60 /* GenerateVC.swift in Sources */,
 				B6FDD29E1E7EC35A0008DF45 /* Extensions.swift in Sources */,
-				E04A4A571E8284CB00E8A349 /* DominantColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

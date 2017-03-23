@@ -12,11 +12,7 @@ class StartNewVC: UIViewController,UINavigationControllerDelegate{
     
     let picker = UIImagePickerController()
     
-    var editImage: UIImage?
-    
     @IBOutlet weak var myImageView: UIImageView!
-    
-    @IBOutlet weak var colorBoxStack: UIStackView!
     
     
     
@@ -63,40 +59,19 @@ class StartNewVC: UIViewController,UINavigationControllerDelegate{
         let cgimage = CIContext.init(options: nil).createCGImage(result, from: result.extent)
         myImageView.image = UIImage(cgImage: cgimage!)
     }
-    @IBAction func getColorBtnPressed(_ sender: UIButton) {
-        guard myImageView.image != nil else {
-            showAlert(message: "Please select image first")
-            return
-        }
-        stackViewRemoveAll()
-        colorBoxStack.translatesAutoresizingMaskIntoConstraints = false
-        let colors = myImageView.image!.dominantColors()
-        
-        let boxHeight = colorBoxStack.frame.size.height
-        let boxWidth = colorBoxStack.frame.size.width / CGFloat(colors.count)
-        for color in colors {
-            let box = UIView()
-            box.widthAnchor.constraint(equalToConstant: boxWidth).isActive = true
-            box.heightAnchor.constraint(equalToConstant: boxHeight).isActive = true
-            box.backgroundColor = color
-            colorBoxStack.addArrangedSubview(box)
-        }
-        
-    }
+   
     @IBAction func generateBtnPressed(_ sender: UIButton) {
         guard myImageView.image != nil else {
             showAlert(message: "Please select image first")
             return
         }
         
-        editImage = PPImage.resize(image: myImageView.image!, newWidth: 50)
-        
         performSegue(withIdentifier: "toGenerate", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let generatePage = segue.destination as? GenerateVC {
-            generatePage.editImage = editImage
+            generatePage.originImage = myImageView.image!
         }
     }
     
@@ -107,12 +82,6 @@ class StartNewVC: UIViewController,UINavigationControllerDelegate{
         present(alertVC, animated: true, completion: nil)
     }
     
-    func stackViewRemoveAll(){
-        for subview in colorBoxStack.arrangedSubviews {
-            colorBoxStack.removeArrangedSubview(subview)
-            subview.removeFromSuperview()
-        }
-    }
 }
 
 extension StartNewVC: UIImagePickerControllerDelegate {
