@@ -9,7 +9,7 @@
 import UIKit
 
 class FilterVC: UIViewController {
-
+    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var filterCollectionView: UICollectionView!
     
@@ -44,16 +44,13 @@ class FilterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mainImageView.contentMode = UIViewContentMode.scaleAspectFit
         mainImageView.image = originImage
         resizedImage = PPImage.resize(image: originImage, newWidth: 100)
         filterCollectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .centeredHorizontally)
-        
-        filterCollectionView.layout
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,7 +65,7 @@ class FilterVC: UIViewController {
             generatePage.originImage = mainImageView.image!
         }
     }
-
+    
 }
 
 extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -76,14 +73,14 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource{
         return filterDisplayNameList.count
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCell", for: indexPath) as! FilterCell
         var filteredImage = resizedImage
         if indexPath.row != 0 {
             filteredImage = PPImage.filterImage(filterName: filterNameList[indexPath.row], image: resizedImage)
         }
-        
         cell.preview.image = filteredImage
+        cell.preview.contentMode = UIViewContentMode.scaleAspectFit
         cell.nameLabel.text = filterDisplayNameList[indexPath.row]
         return cell
     }
@@ -96,6 +93,17 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource{
             mainImageView.image = originImage
         }
         self.filterCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+}
+
+extension FilterVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.height - 24 // leave space for name label
+        return CGSize(width: width, height: collectionView.frame.height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 40
     }
 }
 

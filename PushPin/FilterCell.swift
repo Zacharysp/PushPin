@@ -14,7 +14,7 @@ class FilterCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         willSet {
-            nameLabel.font = newValue ? UIFont.boldSystemFont(ofSize: 16) : UIFont.systemFont(ofSize: 14)
+            nameLabel.font = newValue ? UIFont.boldSystemFont(ofSize: 14) : UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin)
         }
     }
 }

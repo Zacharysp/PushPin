@@ -254,8 +254,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3e-YW-znQ">
-                                                    <rect key="frame" x="8" y="8" width="61" height="13"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <rect key="frame" x="8" y="8" width="61" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -266,8 +266,7 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="a3e-YW-znQ" secondAttribute="trailing" id="4SQ-Zy-H3h"/>
                                             <constraint firstAttribute="bottom" secondItem="JDy-6P-FCo" secondAttribute="bottom" id="5LP-Tx-qX1"/>
                                             <constraint firstItem="a3e-YW-znQ" firstAttribute="leading" secondItem="V67-4u-lMi" secondAttribute="leadingMargin" id="R2X-0E-Azp"/>
-                                            <constraint firstItem="JDy-6P-FCo" firstAttribute="top" secondItem="a3e-YW-znQ" secondAttribute="bottom" constant="4" id="ql0-Nw-Wby"/>
-                                            <constraint firstItem="a3e-YW-znQ" firstAttribute="top" secondItem="V67-4u-lMi" secondAttribute="topMargin" id="sc3-Hm-XlH"/>
+                                            <constraint firstItem="a3e-YW-znQ" firstAttribute="top" secondItem="V67-4u-lMi" secondAttribute="topMargin" id="luf-db-sBc"/>
                                             <constraint firstAttribute="trailing" secondItem="JDy-6P-FCo" secondAttribute="trailing" id="wmX-ix-eON"/>
                                         </constraints>
                                         <connections>
