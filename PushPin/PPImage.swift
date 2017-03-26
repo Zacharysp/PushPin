@@ -51,6 +51,18 @@ struct PPImage {
         return newImage!
     }
     
+    public static func filterImage(filterName: String, image: UIImage) -> UIImage{
+        let ciImage = CIImage(cgImage: image.cgImage!)
+        
+        let filter = CIFilter(name: filterName)
+        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+        let result = filter?.value(forKey: kCIOutputImageKey) as! CIImage
+        let imageOrientation = image.imageOrientation
+        let cgImage = CIContext(options: nil).createCGImage(result, from: result.extent)
+        return UIImage(cgImage: cgImage!, scale: 1, orientation: imageOrientation)
+    }
+
+    
     //get new image frame
     fileprivate static func findRatioRect(size: CGSize, width: Int) -> CGRect{
         let ratio = size.height / size.width

@@ -44,21 +44,6 @@ class StartNewVC: UIViewController,UINavigationControllerDelegate{
     func noCamera(){
         showAlert(message: "Sorry, this device has no camera")
     }
-    
-    @IBAction func saturationBtnPressed(_ sender: UIButton) {
-        guard myImageView.image != nil else {
-            showAlert(message: "Please select image first")
-            return
-        }
-        let ciImage = CIImage(cgImage: myImageView.image!.cgImage!)
-        
-        let filter = CIFilter(name: "CIColorControls")
-        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        filter?.setValue(2.0, forKey: kCIInputSaturationKey)
-        let result = filter?.value(forKey: kCIOutputImageKey) as! CIImage
-        let cgimage = CIContext.init(options: nil).createCGImage(result, from: result.extent)
-        myImageView.image = UIImage(cgImage: cgimage!)
-    }
    
     @IBAction func generateBtnPressed(_ sender: UIButton) {
         guard myImageView.image != nil else {
@@ -66,12 +51,12 @@ class StartNewVC: UIViewController,UINavigationControllerDelegate{
             return
         }
         
-        performSegue(withIdentifier: "toGenerate", sender: nil)
+        performSegue(withIdentifier: "toFilter", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let generatePage = segue.destination as? GenerateVC {
-            generatePage.originImage = myImageView.image!
+        if let filterPage = segue.destination as? FilterVC {
+            filterPage.originImage = myImageView.image!
         }
     }
     
