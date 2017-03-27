@@ -1,5 +1,5 @@
 //
-//  GenerateVC.swift
+//  ConfigVC.swift
 //  PushPin
 //
 //  Created by Dongjie Zhang on 3/21/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GenerateVC: UIViewController {
+class ConfigVC: UIViewController {
     
     var originImage: UIImage!
     

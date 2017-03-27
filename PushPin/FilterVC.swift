@@ -61,8 +61,8 @@ class FilterVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let generatePage = segue.destination as? GenerateVC {
-            generatePage.originImage = mainImageView.image!
+        if let pixelPage = segue.destination as? PixelateVC {
+            pixelPage.pixelImage = mainImageView.image!
         }
     }
     
@@ -100,10 +100,6 @@ extension FilterVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.height - 24 // leave space for name label
         return CGSize(width: width, height: collectionView.frame.height)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 40
     }
 }
 
