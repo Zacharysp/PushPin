@@ -32,3 +32,24 @@ example with photo was taken from iphone default camera
 
 7. draw new image with circle pixel.
 
+
+## workflow
+
+1. start new.
+
+2. choose resolution.
+
+3. choose from library or take a new photo.
+
+4. add filter.
+
+5. crop.
+
+6. resize.
+
+7. dominant color and adjust saturation, contrast.
+
+8. choose color.
+
+9. generate pushpin image.
+

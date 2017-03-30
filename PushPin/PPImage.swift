@@ -12,7 +12,7 @@ import UIKit
 struct PPImage {
     
     public static func make(image: UIImage, width: Int, size: Int, colors: Array<PPColor>) -> CGImage?{
-        let bitsArr = image.pixelData()!
+        let bitsArr = image.pixelDataArray()!
         
         let outBounds = findRatioRect(size: image.size, width: width)
         
