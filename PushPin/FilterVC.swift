@@ -10,7 +10,7 @@ import UIKit
 
 class FilterVC: UIViewController {
     
-    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var mainImageView: CropImageView!
     @IBOutlet weak var filterCollectionView: UICollectionView!
     
     
@@ -45,10 +45,12 @@ class FilterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainImageView.contentMode = UIViewContentMode.scaleAspectFit
-        mainImageView.image = originImage
         resizedImage = PPImage.resize(image: originImage, newWidth: 100)
         filterCollectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .centeredHorizontally)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        mainImageView.setup(image: originImage)
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,8 +64,11 @@ class FilterVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let pixelPage = segue.destination as? PixelateVC {
-            pixelPage.pixelImage = mainImageView.image!
+            pixelPage.pixelImage = mainImageView.image()!
         }
+    }
+    @IBAction func switchFrameBtnPressed(_ sender: UIBarButtonItem) {
+        print(mainImageView.frame)
     }
     
 }
@@ -88,9 +93,9 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         if indexPath.row != 0 {
-            mainImageView.image = PPImage.filterImage(filterName: filterNameList[selectedIndex], image: originImage)
+            mainImageView.setup(image: PPImage.filterImage(filterName: filterNameList[selectedIndex], image: originImage))
         }else {
-            mainImageView.image = originImage
+            mainImageView.setup(image: originImage)
         }
         self.filterCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }

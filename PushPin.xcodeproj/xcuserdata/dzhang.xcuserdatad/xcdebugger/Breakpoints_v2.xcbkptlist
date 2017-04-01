@@ -110,9 +110,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "init(level:)"
-            landmarkType = "7">
+            endingLineNumber = "69">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -150,12 +148,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512572537.521571"
+            timestampString = "512640813.58466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -166,12 +164,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574434.3828"
+            timestampString = "512640813.58466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -182,75 +180,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574434.3828"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "dither(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "dither(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushPin/DashboardVC.swift"
-            timestampString = "512571021.91733"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "dither(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushPin/Dither.swift"
-            timestampString = "512574434.3828"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
+            landmarkName = "dither(image:paletteMapping:counter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Dither.swift"
+            timestampString = "512642912.19079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "dither(image:paletteMapping:counter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Dither.swift"
+            timestampString = "512642912.19079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "dither(image:paletteMapping:counter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Dither.swift"
+            timestampString = "512642912.19079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "calculateError(current:dither:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -262,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574434.3828"
+            timestampString = "512640813.58466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "subtractDither(component:dither:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -279,12 +261,12 @@
             condition = "errorColor.red != 0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -295,12 +277,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -311,12 +293,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -327,76 +309,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "dither(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "dither(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "dither(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "dither(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
             endingLineNumber = "198"
-            landmarkName = "dither(image:)"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -407,12 +325,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574434.3828"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "dither(image:paletteMapping:counter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Dither.swift"
+            timestampString = "512642912.19079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "dither(image:paletteMapping:counter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Dither.swift"
+            timestampString = "512642912.19079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "dither(image:paletteMapping:counter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Dither.swift"
+            timestampString = "512642912.19079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "dither(image:paletteMapping:counter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Dither.swift"
+            timestampString = "512640813.58466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -455,12 +437,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -471,12 +453,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574434.3828"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -487,12 +469,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574434.3828"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -503,12 +485,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574434.3828"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -520,12 +502,12 @@
             condition = "y&gt;50"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574775.311007"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "dither(image:)"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "dither(image:paletteMapping:counter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -536,11 +518,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574929.980244"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "offset(row:column:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -553,11 +535,11 @@
             condition = "index&gt;30000"
             continueAfterRunningActions = "Yes"
             filePath = "PushPin/Dither.swift"
-            timestampString = "512574499.779598"
+            timestampString = "512642912.19079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "getCurrentPixel(index:)"
             landmarkType = "9">
             <Actions>
@@ -568,6 +550,86 @@
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Palette.swift"
+            timestampString = "512642912.19079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "init(color:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/Palette.swift"
+            timestampString = "512642912.19079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "init(palette:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/DashboardCell.swift"
+            timestampString = "512732489.625296"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/CropImageView.swift"
+            timestampString = "512742752.831821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PushPin/CropImageView.swift"
+            timestampString = "512742752.831821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "init(coder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

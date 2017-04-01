@@ -16,34 +16,6 @@ struct Matrix
     let ratio: Int
 }
 
-struct Pixel {
-    var red: UInt8
-    var green: UInt8
-    var blue: UInt8
-    var alpha: UInt8
-    
-    static func toUInt8(value: Double) -> UInt8
-    {
-        return value > 1.0 ? UInt8(255) : value < 0 ? UInt8(0) : UInt8(value * 255.0)
-    }
-    
-    init(red: UInt8, green: UInt8, blue: UInt8, alpha: UInt8)
-    {
-        self.red = red
-        self.green = green
-        self.blue = blue
-        self.alpha = alpha
-    }
-    
-    init(red: Double, green: Double, blue: Double, alpha: Double)
-    {
-        self.red = Pixel.toUInt8(value: red)
-        self.green = Pixel.toUInt8(value: green)
-        self.blue = Pixel.toUInt8(value: blue)
-        self.alpha = Pixel.toUInt8(value: alpha)
-    }
-}
-
 struct Dither {
     
     static func pixelArrayFrom(image: UIImage) -> [UInt8]? {
@@ -66,9 +38,7 @@ struct Dither {
         return pixelData
     }
     
-    
-    
-    static func dither(image: UIImage) -> UIImage? {
+    static func dither(image: UIImage, paletteMapping: [PixelColor: PixelColor], counter: inout [PixelColor: Int]) -> UIImage? {
         //using atkinson dithering
         let divisor = 8
         let matrix = [
@@ -101,8 +71,8 @@ struct Dither {
         }
         
         //Distribute error to matrix color components
-        func distributeError(pixel: Pixel, pixelError: Pixel, ratio: Int) -> Pixel {
-            return Pixel(
+        func distributeError(pixel: PixelColor, pixelError: PixelColor, ratio: Int) -> PixelColor {
+            return PixelColor(
                 red: addError(component: pixel.red, pixelError: pixelError.red, ratio: ratio),
                 green: addError(component: pixel.green, pixelError: pixelError.green, ratio: ratio),
                 blue: addError(component: pixel.blue, pixelError: pixelError.blue, ratio: ratio),
@@ -110,16 +80,21 @@ struct Dither {
         }
         
         // Calculate the dither for the current pixel
-        func calculateDither(pixel: Pixel) -> Pixel {
-            return Pixel(red: pixel.red < 128 ? 0 : 255,
+        func calculateDither(pixel: PixelColor) -> PixelColor {
+            let color = PixelColor(red: pixel.red < 128 ? 0 : 255,
                          green: pixel.green < 128 ? 0 : 255,
                          blue: pixel.blue < 128 ? 0 : 255,
                          alpha: pixel.alpha)
+            if paletteMapping[color] != nil {
+                return paletteMapping[color]!
+            }else {
+                return color
+            }
         }
         
         // Calculate Error by substracting dither from current color components
-        func calculateError(current: Pixel, dither: Pixel) -> Pixel {
-            return Pixel(red: subtractDither(component: current.red, dither: dither.red),
+        func calculateError(current: PixelColor, dither: PixelColor) -> PixelColor {
+            return PixelColor(red: subtractDither(component: current.red, dither: dither.red),
                          green: subtractDither(component: current.green, dither: dither.green),
                          blue: subtractDither(component: current.blue, dither: dither.blue),
                          alpha: current.alpha)
@@ -131,14 +106,14 @@ struct Dither {
             return row * width * 4 + column * 4
         }
         
-        func getCurrentPixel(index: Int) -> Pixel {
-            return Pixel(red: pixelArray[index],
+        func getCurrentPixel(index: Int) -> PixelColor {
+            return PixelColor(red: pixelArray[index],
                          green: pixelArray[index + 1],
                          blue: pixelArray[index + 2],
                          alpha: pixelArray[index + 3])
         }
         
-        func setPixel(index: Int, array: inout [UInt8], pixel: Pixel){
+        func setPixelColor(index: Int, array: inout [UInt8], pixel: PixelColor){
             array[index] = pixel.red
             array[index + 1] = pixel.green
             array[index + 2] = pixel.blue
@@ -156,8 +131,14 @@ struct Dither {
                 
                 let ditherColor = calculateDither(pixel: currentColor)
                 let errorColor = calculateError(current: currentColor, dither: ditherColor)
+
+                if counter[ditherColor] != nil {
+                    counter[ditherColor] = counter[ditherColor]! + 1
+                }else {
+                    counter[ditherColor] = 1
+                }
                 
-                setPixel(index: currentIndex, array: &pixelArray, pixel: ditherColor)
+                setPixelColor(index: currentIndex, array: &pixelArray, pixel: ditherColor)
 //                /* draw on canvas */
 //                let newColor = UIColor(
 //                    red: CGFloat(ditherColor.red / 255),
@@ -191,7 +172,7 @@ struct Dither {
                     let neighborIndex = offset(row: row, column: column)
                     let neighborColor = getCurrentPixel(index: neighborIndex)
                     let neighborNewColor = distributeError(pixel: neighborColor, pixelError: errorColor, ratio: neighbor.ratio)
-                    setPixel(index: neighborIndex, array: &pixelArray, pixel: neighborNewColor)
+                    setPixelColor(index: neighborIndex, array: &pixelArray, pixel: neighborNewColor)
                 }
             }
         }

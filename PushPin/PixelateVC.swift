@@ -42,23 +42,23 @@ class PixelateVC: UIViewController, UIScrollViewDelegate {
     }
     
     func generatePixelImage(image: UIImage){
-        let generteImage = increaseSaturation(image: image.cgImage!)
-        guard let colors = ColorThief.getPalette(from: generteImage, colorCount: 9, quality: 1, ignoreWhite: false) else {
-            //cannot get colors
-            return
-        }
-        for color in colors {
-            colorArray.append(PPColor(color: color.makeUIColor()))
-        }
-        pixelCollectionView.reloadData()
         
-        if let newImage = PPImage.make(image: generteImage, width: 1200, size: 16, colors: colorArray) {
-            imageView = UIImageView(image: UIImage(cgImage: newImage))
+        
+        //        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        //        let image = PPImage.resize(image: UIImage(named: "test.jpg")!, newWidth: 150)
+        //
+        //        let purple = PixelColor(red: 255, green: 0, blue: 255, alpha: 255)
+        //        let red = PixelColor(color: UIColor.red)
+        //
+                var counter: [PixelColor: Int] = [:]
+        //
+        if let ditherImage = Dither.dither(image: image, paletteMapping: [:], counter: &counter) {
+            imageView = UIImageView(image: ditherImage)
             buildScrollView(size: imageView!.frame.size)
             pixelScrollView.addSubview(imageView!)
-        }else {
-            print("err")
-        }
+                    print(counter)
+                    print(counter.count)
+                }
     }
   
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
