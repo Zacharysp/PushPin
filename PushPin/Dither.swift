@@ -38,7 +38,7 @@ struct Dither {
         return pixelData
     }
     
-    static func dither(image: UIImage, paletteMapping: [PixelColor: PixelColor], counter: inout [PixelColor: Int]) -> UIImage? {
+    static func dither(image: UIImage, paletteMapping: [PixelColor: PixelColor]?, counter: inout [PixelColor: Int], type: WorkSizeType) -> UIImage? {
         //using atkinson dithering
         let divisor = 8
         let matrix = [
@@ -48,6 +48,9 @@ struct Dither {
             Matrix(row: 1, column: 0, ratio: 1),
             Matrix(row: 1, column: 1, ratio: 1),
             Matrix(row: 2, column: 0, ratio: 1)]
+        
+        let ditherImageWidth = 600
+        let pinRadius = ditherImageWidth / WorkSize(type: type).width
         
         let width = Int(image.size.width)
         let height = Int(image.size.height)
@@ -85,11 +88,10 @@ struct Dither {
                          green: pixel.green < 128 ? 0 : 255,
                          blue: pixel.blue < 128 ? 0 : 255,
                          alpha: pixel.alpha)
-            if paletteMapping[color] != nil {
-                return paletteMapping[color]!
-            }else {
+            guard paletteMapping != nil else {
                 return color
             }
+            return paletteMapping![color] ?? color
         }
         
         // Calculate Error by substracting dither from current color components

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func dLog(message: String, filename: String = #file, function: String = #function, line: Int = #line) {
     #if DEBUG
@@ -22,5 +23,9 @@ struct Constants {
         static let FROM_LIBRARY = "From library"
         static let FROM_CAMERA = "From camera"
         static let CANCEL = "Cancel"
+    }
+    
+    struct COLOR {
+        static let BACKGROUD = UIColor(red: 60/255.0, green: 92/255.0, blue: 102/255.0, alpha: 0.6)
     }
 }

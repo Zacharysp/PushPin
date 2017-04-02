@@ -18,42 +18,44 @@ extension UIColor {
 
 extension UIImage {
     func pixelDataArray() -> [UInt8]? {
-                let size = self.size
-                let dataSize = size.width * size.height * 4
-                var pixelData = [UInt8](repeating: 0, count: Int(dataSize))
-                let colorSpace = CGColorSpaceCreateDeviceRGB()
-                let context = CGContext(data: &pixelData,
-                                        width: Int(size.width),
-                                        height: Int(size.height),
-                                        bitsPerComponent: 8,
-                                        bytesPerRow: 4 * Int(size.width),
-                                        space: colorSpace,
-                                        bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)
-                guard let cgImage = self.cgImage else { return nil }
-                context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-                
-                return pixelData
-            }
-
-    func areaAverage() -> UIColor {
-        var bitmap = [UInt8](repeating: 0, count: 4)
+        let size = self.size
+        let dataSize = size.width * size.height * 4
+        var pixelData = [UInt8](repeating: 0, count: Int(dataSize))
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = CGContext(data: &pixelData,
+                                width: Int(size.width),
+                                height: Int(size.height),
+                                bitsPerComponent: 8,
+                                bytesPerRow: 4 * Int(size.width),
+                                space: colorSpace,
+                                bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)
+        guard let cgImage = self.cgImage else { return nil }
+        context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         
-        // Get average color.
-        let context = CIContext()
-        let inputImage: CIImage = ciImage ?? CoreImage.CIImage(cgImage: cgImage!)
-        let extent = inputImage.extent
-        let inputExtent = CIVector(x: extent.origin.x, y: extent.origin.y, z: extent.size.width, w: extent.size.height)
-        let filter = CIFilter(name: "CIAreaAverage", withInputParameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: inputExtent])!
-        let outputImage = filter.outputImage!
-        let outputExtent = outputImage.extent
-        assert(outputExtent.size.width == 1 && outputExtent.size.height == 1)
+        return pixelData
+    }
+    
+    //resize the image
+    func resize(newWidth: Int) -> UIImage? {
         
-        // Render to bitmap.
-        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: kCIFormatRGBA8, colorSpace: CGColorSpaceCreateDeviceRGB())
+        let newRect = findRatioRect(size: size, width: newWidth)
         
+        //draw in rect for resizing
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newRect.size.width, height: newRect.size.height), false, 1.0)
+        draw(in: newRect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         
-        // Compute result.
-        let result = UIColor(red: CGFloat(bitmap[0]) / 255.0, green: CGFloat(bitmap[1]) / 255.0, blue: CGFloat(bitmap[2]) / 255.0, alpha: CGFloat(bitmap[3]) / 255.0)
-        return result
+        return newImage
+    }
+    
+    //get new image frame
+    private func findRatioRect(size: CGSize, width: Int) -> CGRect{
+        let ratio = size.height / size.width
+        
+        let cgWidth = CGFloat(width)
+        let cgheight = cgWidth * ratio
+        
+        return CGRect(x: 0, y: 0, width: cgWidth, height: cgheight)
     }
 }
