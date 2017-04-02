@@ -34,11 +34,8 @@ class DashboardVC: UIViewController, UINavigationControllerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let sizePage = segue.destination as? SizeVC {
-            guard selectedImage != nil else {
-                return
-            }
-            sizePage.originImage = selectedImage!
+        if let filterPage = segue.destination as? FilterVC {
+            filterPage.originImage = selectedImage!
         }
     }
     
@@ -64,7 +61,7 @@ extension DashboardVC: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             selectedImage = chosenImage
-            performSegue(withIdentifier: "toSize", sender: nil)
+            performSegue(withIdentifier: "toFilter", sender: nil)
         } else{
             showAlert(message: "Image type not supported")
         }

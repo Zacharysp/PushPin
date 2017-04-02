@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KEL-jO-cmn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="47V-wa-wM0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="-18" y="-1015"/>
         </scene>
-        <!--DashboardVC-->
+        <!--PushPin-->
         <scene sceneID="gvn-gL-G89">
             <objects>
                 <viewController id="mKd-bR-S3l" customClass="DashboardVC" customModule="PushPin" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,9 +65,10 @@
                             <constraint firstAttribute="trailing" secondItem="yJA-2C-ucx" secondAttribute="trailing" id="cC5-9D-lGg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JMV-NP-PV8"/>
+                    <navigationItem key="navigationItem" title="PushPin" id="JMV-NP-PV8"/>
                     <connections>
                         <outlet property="DashboardCollectionView" destination="yJA-2C-ucx" id="idw-ho-4fn"/>
+                        <segue destination="kCh-3g-IPc" kind="show" identifier="toFilter" id="pmQ-tk-eth"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iD1-qY-n6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,8 +88,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2te-zM-ulF">
-                                <rect key="frame" x="0.0" y="40" width="375" height="587"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="499"/>
+                                <color key="backgroundColor" red="0.87058823529999996" green="0.90588235289999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ICo-tO-S1Q">
                                     <size key="itemSize" width="364" height="528"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -103,7 +103,7 @@
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="LNj-Gz-js7">
-                                <rect key="frame" x="152" y="635" width="71" height="37"/>
+                                <rect key="frame" x="152" y="591" width="71" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4o-gg-QRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431.2" y="-1017.84107946027"/>
+            <point key="canvasLocation" x="2199" y="-1021"/>
         </scene>
         <!--PixelateVC-->
         <scene sceneID="Mav-59-3MP">
@@ -189,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dt8-EX-Phf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2274" y="-1015"/>
+            <point key="canvasLocation" x="4127" y="-1018"/>
         </scene>
         <!--Filter-->
         <scene sceneID="pbx-Zd-oP9">
@@ -204,7 +204,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V0p-4E-4ZI">
-                                <rect key="frame" x="16" y="469" width="343" height="154"/>
+                                <rect key="frame" x="16" y="513" width="343" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hmd-ht-Mi4">
                                     <size key="itemSize" width="77" height="102"/>
@@ -214,7 +214,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filterCell" id="V67-4u-lMi" customClass="FilterCell" customModule="PushPin" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="4" width="77" height="102"/>
+                                        <rect key="frame" x="10" y="-50" width="77" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="77" height="102"/>
@@ -254,8 +254,8 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLM-dc-wpX" customClass="CropImageView" customModule="PushPin" customModuleProvider="target">
-                                <rect key="frame" x="16" y="40" width="343" height="429"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="84" width="343" height="429"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uLM-dc-wpX" secondAttribute="height" multiplier="100:125" id="5eG-f8-0Ar"/>
                                 </constraints>
@@ -274,14 +274,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Filter" id="X2J-of-Mb1">
-                        <rightBarButtonItems>
-                            <barButtonItem title="pixelate" id="z84-6n-MUK"/>
-                            <barButtonItem title="frame" id="nfX-Pd-aRv">
-                                <connections>
-                                    <action selector="switchFrameBtnPressed:" destination="kCh-3g-IPc" id="dCl-7u-lfs"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="pixelate" id="z84-6n-MUK">
+                            <connections>
+                                <segue destination="KEL-jO-cmn" kind="show" identifier="toSize" id="Y70-Lv-4Kb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -291,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55l-jO-Dpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3431" y="-1015"/>
+            <point key="canvasLocation" x="1471" y="-1020"/>
         </scene>
     </scenes>
 </document>

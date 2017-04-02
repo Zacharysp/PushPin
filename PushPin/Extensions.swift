@@ -49,6 +49,21 @@ extension UIImage {
         return newImage
     }
     
+    func filterImage(filterName: String) -> UIImage{
+        guard self.cgImage != nil else {
+            return self
+        }
+        let ciImage = CIImage(cgImage: self.cgImage!)
+        
+        //set filter with name
+        let filter = CIFilter(name: filterName)
+        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+        let result = filter?.value(forKey: kCIOutputImageKey) as! CIImage
+        let imageOrientation = self.imageOrientation
+        let cgImage = CIContext(options: nil).createCGImage(result, from: result.extent)
+        return UIImage(cgImage: cgImage!, scale: 1, orientation: imageOrientation)
+    }
+    
     //get new image frame
     private func findRatioRect(size: CGSize, width: Int) -> CGRect{
         let ratio = size.height / size.width

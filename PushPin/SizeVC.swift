@@ -10,38 +10,22 @@ import UIKit
 class SizeVC: UIViewController {
     
     var originImage: UIImage!
-    
-    var sizes: Array<WorkSize>!
+    var images: SizeDitherImage!
 
-//    @IBOutlet weak var sizeCardView: TGLParallaxCarousel!
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var sizeCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        originImage = UIImage(named: "test.jpg")!.resize(newWidth: 100)
-        sizes = [
-            WorkSize(type: .xSmall),
-            WorkSize(type: .small),
-            WorkSize(type: .medium),
-            WorkSize(type: .large),
-            WorkSize(type: .xLarge)
-        ]
+        images = SizeDitherImage(image: originImage)
+        images.delegate = self
         
         buildPageControl()
         buildCollectionView()
     }
     
-//    func setupCarousel() {
-//        sizeCardView.delegate = self
-//        sizeCardView.margin = 10
-//        sizeCardView.selectedIndex = 0
-//        sizeCardView.type = .threeDimensional
-//    }
-    
     func buildPageControl(){
-        pageControl.numberOfPages = sizes.count
+        pageControl.numberOfPages = images.imageArray.count
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.red
@@ -55,7 +39,7 @@ class SizeVC: UIViewController {
     }
     
     func buildLayout() -> UICollectionViewFlowLayout{
-        let layout = SizeFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20.0
         //left and right inset
@@ -71,21 +55,30 @@ class SizeVC: UIViewController {
     }
 }
 
+extension SizeVC: SizeDitherImageDelegate {
+    func finishDither() {
+        DispatchQueue.main.async {
+            self.sizeCollectionView.reloadData()
+        }
+    }
+}
+
 extension SizeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sizes.count
+        return images.imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sizeCell", for: indexPath) as! SizeCell
-        cell.backgroundColor = UIColor.gray
-        cell.workSize = WorkSize(type: WorkSizeType(rawValue: indexPath.row) ?? WorkSizeType.medium)
-        cell.image = originImage
+        cell.workSize = images.imageArray[indexPath.row].size
+        if let image = images.imageArray[indexPath.row].ditherImage {
+            cell.imageView.image = image
+        }
         return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentPage = CGFloat(sizes.count) * (scrollView.contentOffset.x + UIScreen.main.bounds.size.width*0.2) / scrollView.contentSize.width
+        let currentPage = CGFloat(images.imageArray.count) * (scrollView.contentOffset.x + UIScreen.main.bounds.size.width*0.2) / scrollView.contentSize.width
         guard currentPage >= 0 && currentPage < 5 else {
             return
         }
@@ -96,46 +89,6 @@ extension SizeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 extension SizeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width*0.8, height: collectionView.bounds.height - 40)
-    }
-}
-
-class SizeFlowLayout: UICollectionViewFlowLayout {
-    let ActiveDistance : CGFloat = 300
-    let ScaleFactor : CGFloat = 0.25
-    
-//    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-//        var offsetAdjustment = CGFloat(MAXFLOAT)
-//        let horizontalCenter = proposedContentOffset.x + (self.collectionView!.bounds.width / 2.0)
-//        let targetRect = CGRect(x: proposedContentOffset.x, y: 0.0, width:  self.collectionView!.bounds.size.width, height: self.collectionView!.bounds.size.height)
-//        let array = super.layoutAttributesForElements(in: targetRect) as [UICollectionViewLayoutAttributes]!
-//        for layoutAttributes in array!{
-//            let itemHorizontalCenter = layoutAttributes.center.x
-//            if(abs(itemHorizontalCenter-horizontalCenter) < abs(offsetAdjustment)){
-//                offsetAdjustment = itemHorizontalCenter-horizontalCenter
-//            }
-//        }
-//        return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
-//    }
-//    
-//    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-//        let array = super.layoutAttributesForElements(in: rect)
-//        var visibleRect = CGRect()
-//        visibleRect.origin = self.collectionView!.contentOffset
-//        visibleRect.size = self.collectionView!.bounds.size
-//        for attributes in array!{
-//            let distance = visibleRect.midX - attributes.center.x
-//            let normalizedDistance = distance/ActiveDistance
-//            let zoom = 1 - ScaleFactor*(abs(normalizedDistance))
-//            let alpha = 1 - abs(normalizedDistance)
-//            attributes.transform3D = CATransform3DMakeScale(1.0, zoom, 1.0)
-//            attributes.alpha = alpha
-//            attributes.zIndex = 1
-//        }
-//        return array
-//    }
-    
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        return true
     }
 }
 

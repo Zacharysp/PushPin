@@ -20,23 +20,18 @@
 		B6FDD29E1E7EC35A0008DF45 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */; };
 		E006E8101E7FE62300F8DAA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */; };
 		E0A92D971E8B61B600754D3A /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A92D961E8B61B600754D3A /* DashboardVC.swift */; };
-		E0A92D991E8B62A700754D3A /* NewItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A92D981E8B62A700754D3A /* NewItemVC.swift */; };
 		E0A92D9E1E8B941C00754D3A /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E0A92D9D1E8B941C00754D3A /* test.jpg */; };
-		E0A92DF11E8D140800754D3A /* UIImage+Dither.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A92DF01E8D140800754D3A /* UIImage+Dither.swift */; };
 		E0A92DF41E8D274900754D3A /* Dither.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A92DF31E8D274900754D3A /* Dither.swift */; };
 		E0A92DF81E8E34DE00754D3A /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A92DF71E8E34DE00754D3A /* Palette.swift */; };
-		E0A92DFB1E8E536800754D3A /* SteppedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A92DFA1E8E536800754D3A /* SteppedProgressBar.swift */; };
 		E0C453741E8F9E370034173A /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C453731E8F9E370034173A /* DashboardCell.swift */; };
 		E0C453791E8FA3F40034173A /* WorkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C453781E8FA3F40034173A /* WorkItem.swift */; };
 		E0C4537E1E8FAE140034173A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4537D1E8FAE140034173A /* Constants.swift */; };
 		E0C453801E8FBD840034173A /* CropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4537F1E8FBD840034173A /* CropImageView.swift */; };
 		E0C453841E90CD360034173A /* SizeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C453831E90CD360034173A /* SizeVC.swift */; };
-		E0C453881E90D3FC0034173A /* TGLParallaxCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C453861E90D3FC0034173A /* TGLParallaxCarousel.swift */; };
-		E0C453891E90D3FC0034173A /* TGLParallaxCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C453871E90D3FC0034173A /* TGLParallaxCarousel.xib */; };
 		E0C4538B1E90DC750034173A /* SizeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4538A1E90DC750034173A /* SizeCardView.swift */; };
 		E0C4538D1E90F9B40034173A /* SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4538C1E90F9B40034173A /* SizeCell.swift */; };
+		E0C4538F1E9158EF0034173A /* SizeDitherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C4538E1E9158EF0034173A /* SizeDitherImage.swift */; };
 		E0CBCDF81E811D570031CC60 /* ConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CBCDF71E811D570031CC60 /* ConfigVC.swift */; };
-		E0CBCDFA1E8146D80031CC60 /* PPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CBCDF91E8146D80031CC60 /* PPImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,23 +74,18 @@
 		BFC6B415E6934394D4CC2D67 /* Pods-PushPin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushPin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushPin/Pods-PushPin.debug.xcconfig"; sourceTree = "<group>"; };
 		E04A4A481E8284CB00E8A349 /* PushPin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PushPin-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0A92D961E8B61B600754D3A /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
-		E0A92D981E8B62A700754D3A /* NewItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemVC.swift; sourceTree = "<group>"; };
 		E0A92D9D1E8B941C00754D3A /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = test.jpg; path = resources/test.jpg; sourceTree = "<group>"; };
-		E0A92DF01E8D140800754D3A /* UIImage+Dither.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Dither.swift"; sourceTree = "<group>"; };
 		E0A92DF31E8D274900754D3A /* Dither.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dither.swift; sourceTree = "<group>"; };
 		E0A92DF71E8E34DE00754D3A /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
-		E0A92DFA1E8E536800754D3A /* SteppedProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteppedProgressBar.swift; path = lib/JKSteppedProgressBar/SteppedProgressBar.swift; sourceTree = "<group>"; };
 		E0C453731E8F9E370034173A /* DashboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
 		E0C453781E8FA3F40034173A /* WorkItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkItem.swift; sourceTree = "<group>"; };
 		E0C4537D1E8FAE140034173A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E0C4537F1E8FBD840034173A /* CropImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropImageView.swift; sourceTree = "<group>"; };
 		E0C453831E90CD360034173A /* SizeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeVC.swift; sourceTree = "<group>"; };
-		E0C453861E90D3FC0034173A /* TGLParallaxCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TGLParallaxCarousel.swift; path = lib/TGLParallaxCarousel/TGLParallaxCarousel.swift; sourceTree = "<group>"; };
-		E0C453871E90D3FC0034173A /* TGLParallaxCarousel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TGLParallaxCarousel.xib; path = lib/TGLParallaxCarousel/TGLParallaxCarousel.xib; sourceTree = "<group>"; };
 		E0C4538A1E90DC750034173A /* SizeCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeCardView.swift; sourceTree = "<group>"; };
 		E0C4538C1E90F9B40034173A /* SizeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeCell.swift; sourceTree = "<group>"; };
+		E0C4538E1E9158EF0034173A /* SizeDitherImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeDitherImage.swift; sourceTree = "<group>"; };
 		E0CBCDF71E811D570031CC60 /* ConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigVC.swift; sourceTree = "<group>"; };
-		E0CBCDF91E8146D80031CC60 /* PPImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +162,6 @@
 				E0A92D9B1E8B643700754D3A /* Components */,
 				E0A92D9A1E8B642B00754D3A /* Controllers */,
 				E04A4A461E8284AE00E8A349 /* lib */,
-				E0CBCDF91E8146D80031CC60 /* PPImage.swift */,
 				B6644B1C1E7CFD0500B051C5 /* AppDelegate.swift */,
 				B6644B201E7CFD0500B051C5 /* Main.storyboard */,
 				B6644B261E7CFD0500B051C5 /* Assets.xcassets */,
@@ -180,7 +169,6 @@
 				B6644B2B1E7CFD0500B051C5 /* Info.plist */,
 				B6644B231E7CFD0500B051C5 /* PushPin.xcdatamodeld */,
 				E0CBCDF71E811D570031CC60 /* ConfigVC.swift */,
-				E0A92D981E8B62A700754D3A /* NewItemVC.swift */,
 				E04A4A481E8284CB00E8A349 /* PushPin-Bridging-Header.h */,
 			);
 			path = PushPin;
@@ -224,10 +212,6 @@
 		E04A4A461E8284AE00E8A349 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				E0C453851E90D3F20034173A /* TGLParallaxCarousel */,
-				E0A92DF91E8E535800754D3A /* JKSteppedProgressBar */,
-				E0A92DF31E8D274900754D3A /* Dither.swift */,
-				E0A92DF71E8E34DE00754D3A /* Palette.swift */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -262,18 +246,9 @@
 		E0A92DF21E8D140D00754D3A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				E0A92DF01E8D140800754D3A /* UIImage+Dither.swift */,
 				B6FDD29D1E7EC35A0008DF45 /* Extensions.swift */,
 			);
 			name = Extension;
-			sourceTree = "<group>";
-		};
-		E0A92DF91E8E535800754D3A /* JKSteppedProgressBar */ = {
-			isa = PBXGroup;
-			children = (
-				E0A92DFA1E8E536800754D3A /* SteppedProgressBar.swift */,
-			);
-			name = JKSteppedProgressBar;
 			sourceTree = "<group>";
 		};
 		E0C453721E8F9E1B0034173A /* Dashboard */ = {
@@ -288,7 +263,10 @@
 		E0C453771E8FA39A0034173A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E0A92DF71E8E34DE00754D3A /* Palette.swift */,
 				E0C453781E8FA3F40034173A /* WorkItem.swift */,
+				E0C4538E1E9158EF0034173A /* SizeDitherImage.swift */,
+				E0A92DF31E8D274900754D3A /* Dither.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -309,15 +287,6 @@
 				E0C4538C1E90F9B40034173A /* SizeCell.swift */,
 			);
 			name = SizePage;
-			sourceTree = "<group>";
-		};
-		E0C453851E90D3F20034173A /* TGLParallaxCarousel */ = {
-			isa = PBXGroup;
-			children = (
-				E0C453861E90D3FC0034173A /* TGLParallaxCarousel.swift */,
-				E0C453871E90D3FC0034173A /* TGLParallaxCarousel.xib */,
-			);
-			name = TGLParallaxCarousel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,7 +408,6 @@
 				B6644B2A1E7CFD0500B051C5 /* LaunchScreen.storyboard in Resources */,
 				B6644B271E7CFD0500B051C5 /* Assets.xcassets in Resources */,
 				B6644B221E7CFD0500B051C5 /* Main.storyboard in Resources */,
-				E0C453891E90D3FC0034173A /* TGLParallaxCarousel.xib in Resources */,
 				E0A92D9E1E8B941C00754D3A /* test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,25 +483,21 @@
 			files = (
 				E0C4538B1E90DC750034173A /* SizeCardView.swift in Sources */,
 				E0C453801E8FBD840034173A /* CropImageView.swift in Sources */,
+				E0C4538F1E9158EF0034173A /* SizeDitherImage.swift in Sources */,
 				E0A92DF81E8E34DE00754D3A /* Palette.swift in Sources */,
 				E0C453841E90CD360034173A /* SizeVC.swift in Sources */,
 				B6B90F151E87CE7D006E6E59 /* FilterCell.swift in Sources */,
 				E0A92D971E8B61B600754D3A /* DashboardVC.swift in Sources */,
 				B6644B251E7CFD0500B051C5 /* PushPin.xcdatamodeld in Sources */,
-				E0A92D991E8B62A700754D3A /* NewItemVC.swift in Sources */,
-				E0A92DFB1E8E536800754D3A /* SteppedProgressBar.swift in Sources */,
 				B6B90F191E894381006E6E59 /* PixelateVC.swift in Sources */,
 				E0C4538D1E90F9B40034173A /* SizeCell.swift in Sources */,
 				E0A92DF41E8D274900754D3A /* Dither.swift in Sources */,
 				B6B90F121E87CAC2006E6E59 /* FilterVC.swift in Sources */,
 				E0C4537E1E8FAE140034173A /* Constants.swift in Sources */,
 				E0C453791E8FA3F40034173A /* WorkItem.swift in Sources */,
-				E0CBCDFA1E8146D80031CC60 /* PPImage.swift in Sources */,
 				B6644B1D1E7CFD0500B051C5 /* AppDelegate.swift in Sources */,
 				E0CBCDF81E811D570031CC60 /* ConfigVC.swift in Sources */,
 				B6FDD29E1E7EC35A0008DF45 /* Extensions.swift in Sources */,
-				E0A92DF11E8D140800754D3A /* UIImage+Dither.swift in Sources */,
-				E0C453881E90D3FC0034173A /* TGLParallaxCarousel.swift in Sources */,
 				E0C453741E8F9E370034173A /* DashboardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

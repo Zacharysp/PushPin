@@ -50,6 +50,16 @@ struct PixelColor: Equatable, Hashable{
         self.blue = UInt8(arr[0] * 255)
         self.alpha = UInt8(arr[0] * 255)
     }
+    
+    func toUIColor() -> UIColor{
+        return UIColor(
+            red: CGFloat(red/255),
+            green: CGFloat(green/255),
+            blue: CGFloat(blue/255),
+            alpha: CGFloat(alpha/255)
+        )
+
+    }
 }
 
 struct PaletteRange {

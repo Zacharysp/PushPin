@@ -38,7 +38,7 @@ struct Dither {
         return pixelData
     }
     
-    static func dither(image: UIImage, paletteMapping: [PixelColor: PixelColor]?, counter: inout [PixelColor: Int], type: WorkSizeType) -> UIImage? {
+    static func dither(image: UIImage, paletteMapping: [PixelColor: PixelColor]?, counter: inout [PixelColor: Int], type: WorkSize) -> UIImage? {
         //using atkinson dithering
         let divisor = 8
         let matrix = [
@@ -49,8 +49,9 @@ struct Dither {
             Matrix(row: 1, column: 1, ratio: 1),
             Matrix(row: 2, column: 0, ratio: 1)]
         
-        let ditherImageWidth = 600
-        let pinRadius = ditherImageWidth / WorkSize(type: type).width
+        let ditherImageWidth = type.isPortrait ? 960 : 1280
+        let pinSize = ditherImageWidth / type.width
+        let ditherImageHeight = type.height * pinSize
         
         let width = Int(image.size.width)
         let height = Int(image.size.height)
@@ -122,6 +123,21 @@ struct Dither {
             array[index + 3] = pixel.alpha
         }
         
+        //create new canvas
+        guard let canvas = CGContext(data: nil,
+                                     width: ditherImageWidth,
+                                     height: ditherImageHeight,
+                                     bitsPerComponent: 8,
+                                     bytesPerRow: 0,
+                                     space: CGColorSpaceCreateDeviceRGB(),
+                                     bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue)
+            else {
+                return nil
+        }
+        canvas.translateBy(x: 0, y: CGFloat(ditherImageHeight)) // to flip the image vertically
+        canvas.scaleBy(x: 1, y: -1) // to flip the image vertically
+        
+        
         // Loop through each pixel and apply dither
         for y in 0..<height
         {
@@ -140,25 +156,18 @@ struct Dither {
                     counter[ditherColor] = 1
                 }
                 
-                setPixelColor(index: currentIndex, array: &pixelArray, pixel: ditherColor)
-//                /* draw on canvas */
-//                let newColor = UIColor(
-//                    red: CGFloat(ditherColor.red / 255),
-//                    green: CGFloat(ditherColor.green / 255),
-//                    blue: CGFloat(ditherColor.blue / 255),
-//                    alpha: CGFloat(ditherColor.alpha / 255)
-//                )
-//                canvas.setFillColor(newColor.cgColor)
-//                let pointStartY = currentIndex / width//get start y axis of this section
-//                let pointStartX = currentIndex % width // get start x axis of this section
-//                canvas.addArc(center: CGPoint(x: CGFloat(x) + 0.5, y: CGFloat(y) + 0.5),
-//                              radius: CGFloat(0.5),
-//                              startAngle: 0,
-//                              endAngle: 2 * CGFloat.pi,
-//                              clockwise: false)
-//                canvas.fillPath()
+                // draw on canvas
+                canvas.setFillColor(ditherColor.toUIColor().cgColor)
+                let pointStartY = y * pinSize//get start y axis of this section
+                let pointStartX = x * pinSize // get start x axis of this section
+                canvas.addArc(center: CGPoint(x: pointStartX + pinSize/2, y: pointStartY + pinSize/2),
+                              radius: CGFloat(pinSize/2),
+                              startAngle: 0,
+                              endAngle: 2 * CGFloat.pi,
+                              clockwise: false)
+                canvas.fillPath()
                 
-                /* Apply Error To Matrix Pixels */
+                // Apply Error To Matrix Pixels
                 for neighbor in matrix {
                     let row = y + neighbor.row
                     let column = x + neighbor.column
@@ -178,29 +187,13 @@ struct Dither {
                 }
             }
         }
-        /* Recomposite image from pixelArray */
-        
-        print("done dither:", pixelArray.count)
-        //build canvas ready for drawing the new image
-        guard let canvas = CGContext(data: &pixelArray,
-                                     width: width,
-                                     height: height,
-                                     bitsPerComponent: 8,
-                                     bytesPerRow: MemoryLayout<UInt8>.size * width * 4,
-                                     space: CGColorSpaceCreateDeviceRGB(),
-                                     bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
-            else {
-                return nil
-        }
-        
-//        canvas.translateBy(x: 0, y: image.size.height) // to flip the image vertically
-//        canvas.scaleBy(x: 1, y: -1) // to flip the image vertically
 
-        
+        //generate image
         guard let cgImage = canvas.makeImage() else {
             return nil
         }
-        return UIImage(cgImage: cgImage)
+        let image = UIImage(cgImage: cgImage)
+        return image
     }
     
 }

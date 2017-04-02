@@ -13,7 +13,6 @@ class FilterVC: UIViewController {
     @IBOutlet weak var mainImageView: CropImageView!
     @IBOutlet weak var filterCollectionView: UICollectionView!
     
-    
     fileprivate let filterNameList = [
         "No Filter",
         "CIPhotoEffectChrome",
@@ -45,7 +44,7 @@ class FilterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resizedImage = PPImage.resize(image: originImage, newWidth: 100)
+        resizedImage = originImage.resize(newWidth: 100)
         filterCollectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .centeredHorizontally)
     }
     
@@ -59,18 +58,14 @@ class FilterVC: UIViewController {
     }
     
     @IBAction func pixelateBtnPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "toPixelate", sender: nil)
+        performSegue(withIdentifier: "toSize", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let pixelPage = segue.destination as? PixelateVC {
-            pixelPage.pixelImage = mainImageView.image()!
+        if let sizePage = segue.destination as? SizeVC {
+            sizePage.originImage = mainImageView.image()!
         }
     }
-    @IBAction func switchFrameBtnPressed(_ sender: UIBarButtonItem) {
-        print(mainImageView.frame)
-    }
-    
 }
 
 extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -82,7 +77,7 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCell", for: indexPath) as! FilterCell
         var filteredImage = resizedImage
         if indexPath.row != 0 {
-            filteredImage = PPImage.filterImage(filterName: filterNameList[indexPath.row], image: resizedImage)
+            filteredImage = resizedImage.filterImage(filterName: filterNameList[indexPath.row])
         }
         cell.preview.image = filteredImage
         cell.preview.contentMode = UIViewContentMode.scaleAspectFit
@@ -93,7 +88,8 @@ extension FilterVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         if indexPath.row != 0 {
-            mainImageView.setup(image: PPImage.filterImage(filterName: filterNameList[selectedIndex], image: originImage))
+            let newImage = originImage.filterImage(filterName: filterNameList[selectedIndex])
+            mainImageView.setup(image: newImage)
         }else {
             mainImageView.setup(image: originImage)
         }

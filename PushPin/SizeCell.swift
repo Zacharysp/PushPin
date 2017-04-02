@@ -20,11 +20,12 @@ struct WorkSize {
     var width: Int = 0
     var height: Int = 0
     var total: Int = 0
+    var isPortrait = false
     
-    init(type: WorkSizeType) {
+    init(type: WorkSizeType, isPortrait: Bool) {
         func setup(w: Int, h: Int){
-            width = w
-            height = h
+            width = isPortrait ? w : h
+            height = isPortrait ? h : w
             total = width * height
         }
         switch type {
@@ -44,26 +45,18 @@ struct WorkSize {
             setup(w: 150, h: 200)
             break
         }
+        self.isPortrait = isPortrait
     }
 }
 
 class SizeCell: UICollectionViewCell {
     
     var totalLabel: UILabel!
-    var counter: [PixelColor: Int] = [:]
-    var image: UIImage? {
-        didSet {
-            ditherImage()
-        }
-    }
-    
-    fileprivate var imageView: UIImageView!
-    fileprivate var hasImage: Bool = false
+    var imageView: UIImageView!
     
     var workSize: WorkSize? {
         didSet {
             totalLabel.text = "Total: \(workSize!.total)"
-            ditherImage()
         }
     }
     
@@ -95,23 +88,6 @@ class SizeCell: UICollectionViewCell {
         imageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: totalLabel.topAnchor).isActive = true
-    }
-    
-    func ditherImage(){
-        guard workSize != nil && image != nil && hasImage == false else {
-            return
-        }
-        hasImage = true
-        DispatchQueue.global().async {
-            guard let ditherImage = Dither.dither(image: self.image!, paletteMapping: nil, counter: &self.counter) else {
-                self.hasImage = false
-                return
-            }
-            DispatchQueue.main.async {
-                self.imageView.image = ditherImage
-            }
-        }
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

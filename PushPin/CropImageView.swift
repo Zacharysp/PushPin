@@ -36,7 +36,6 @@ class CropImageView: UIView {
     
     
     private func buildImageView(){
-        imageView.backgroundColor = UIColor.red
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isUserInteractionEnabled = true
