@@ -65,15 +65,38 @@
                             <constraint firstAttribute="trailing" secondItem="yJA-2C-ucx" secondAttribute="trailing" id="cC5-9D-lGg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PushPin" id="JMV-NP-PV8"/>
+                    <navigationItem key="navigationItem" title="PushPin" id="JMV-NP-PV8">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="gXT-Kg-gLK">
+                            <connections>
+                                <segue destination="Jjb-EU-Ms1" kind="show" identifier="toCropping" id="ZaO-pE-7db"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="DashboardCollectionView" destination="yJA-2C-ucx" id="idw-ho-4fn"/>
-                        <segue destination="kCh-3g-IPc" kind="show" identifier="toFilter" id="pmQ-tk-eth"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iD1-qY-n6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="702" y="-1016"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6nR-6Y-beL">
+            <objects>
+                <viewController id="Jjb-EU-Ms1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R8e-o7-Dao"/>
+                        <viewControllerLayoutGuide type="bottom" id="npf-Vd-A3h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yn0-ge-hmr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMf-cI-wL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1466" y="-1015"/>
         </scene>
         <!--SizeVC-->
         <scene sceneID="mVa-7r-zrX">
@@ -88,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2te-zM-ulF">
-                                <rect key="frame" x="0.0" y="84" width="375" height="499"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="543"/>
                                 <color key="backgroundColor" red="0.87058823529999996" green="0.90588235289999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ICo-tO-S1Q">
                                     <size key="itemSize" width="364" height="528"/>
@@ -123,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4o-gg-QRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2199" y="-1021"/>
+            <point key="canvasLocation" x="3340" y="-1038"/>
         </scene>
         <!--PixelateVC-->
         <scene sceneID="Mav-59-3MP">
@@ -204,7 +227,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V0p-4E-4ZI">
-                                <rect key="frame" x="16" y="513" width="343" height="110"/>
+                                <rect key="frame" x="16" y="469" width="343" height="154"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hmd-ht-Mi4">
                                     <size key="itemSize" width="77" height="102"/>
@@ -214,7 +237,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filterCell" id="V67-4u-lMi" customClass="FilterCell" customModule="PushPin" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="-50" width="77" height="102"/>
+                                        <rect key="frame" x="10" y="4" width="77" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="77" height="102"/>
@@ -254,7 +277,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLM-dc-wpX" customClass="CropImageView" customModule="PushPin" customModuleProvider="target">
-                                <rect key="frame" x="16" y="84" width="343" height="429"/>
+                                <rect key="frame" x="16" y="40" width="343" height="429"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uLM-dc-wpX" secondAttribute="height" multiplier="100:125" id="5eG-f8-0Ar"/>
@@ -288,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55l-jO-Dpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1471" y="-1020"/>
+            <point key="canvasLocation" x="2655" y="-1039"/>
         </scene>
     </scenes>
 </document>
